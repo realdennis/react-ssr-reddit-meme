@@ -9,25 +9,29 @@ const App = ({ redditData }) => {
         {showUpvotes ? "Hide" : "Show"} upvotes
       </button>
       <table>
-        <tr>
-          <th>thumbnail</th>
-          <th>title</th>
-          <th>upvotes</th>
-        </tr>
-        {redditData &&
-          redditData.data &&
-          redditData.data.children &&
-          redditData.data.children.map(({ data }) => {
-            return (
-              <tr key={data.thumbnail}>
-                <td>
-                  <img src={data.thumbnail}></img>
-                </td>
-                <td>{data.title}</td>
-                <td>{showUpvotes ? data.ups : "???"}</td>
-              </tr>
-            );
-          })}
+        <thead>
+          <tr>
+            <th>thumbnail</th>
+            <th>title</th>
+            <th>upvotes</th>
+          </tr>
+        </thead>
+        <tbody>
+          {redditData &&
+            redditData.data &&
+            redditData.data.children &&
+            redditData.data.children.map(({ data }) => {
+              return (
+                <tr key={data.thumbnail}>
+                  <td>
+                    <img src={data.thumbnail}></img>
+                  </td>
+                  <td>{data.title}</td>
+                  <td>{showUpvotes ? data.ups : "???"}</td>
+                </tr>
+              );
+            })}
+        </tbody>
       </table>
     </div>
   );
