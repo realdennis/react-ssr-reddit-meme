@@ -20,6 +20,9 @@ app.get("/", async (req, res) => {
                 border: 1px solid black;
               }
             </style>
+            <script>
+              window.__my__fucking__props__=${JSON.stringify(data)}
+            </script>
         </head>
         <body>
             <div id="root">${ReactAppString}</div>
