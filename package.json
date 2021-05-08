@@ -4,9 +4,13 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "concurrently \"yarn:build:server\" \"yarn build:client\" \"nodemon --inspect build/server.js\"",
-    "build:server": "webpack --mode development --config webpack.server.js -w",
-    "build:client": "webpack --mode development --config webpack.client.js -w"
+    "dev": "concurrently \"yarn:dev:server:watch\" \"yarn dev:client:watch\" \"nodemon --inspect build/server.js\"",
+    "dev:server:watch": "webpack --config webpack.server.js -w",
+    "dev:client:watch": "webpack --config webpack.client.js -w",
+    "build": "concurrently \"yarn:build:server\" \"yarn:build:client\" ",
+    "build:server": "webpack --config webpack.server.js",
+    "build:client": "webpack --config webpack.client.js",
+    "start": "node build/server.js"
   },
   "dependencies": {
     "express": "^4.17.1",
