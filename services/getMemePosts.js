@@ -1,7 +1,9 @@
-import 'isomorphic-fetch'
+import "isomorphic-fetch";
 
-export default async()=>{
-    const response = await fetch('https://www.reddit.com/r/meme/top/.json?count=20')
-    const data = await response.json();
-    return data;
-}
+export default async (type = "top") => {
+  const response = await fetch(
+    `https://www.reddit.com/r/meme/${type}/.json?count=20`
+  );
+  const data = await response.json();
+  return data;
+};
