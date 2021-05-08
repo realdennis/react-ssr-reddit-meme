@@ -5,11 +5,12 @@
   "license": "MIT",
   "scripts": {
     "dev": "concurrently \"yarn:build:server\" \"yarn build:client\" \"nodemon --inspect build/server.js\"",
-    "build:server": "webpack --config webpack.server.js -w",
-    "build:client": "webpack --config webpack.client.js -w"
+    "build:server": "webpack --mode development --config webpack.server.js -w",
+    "build:client": "webpack --mode development --config webpack.client.js -w"
   },
   "dependencies": {
     "express": "^4.17.1",
+    "isomorphic-fetch": "^3.0.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },

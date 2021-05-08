@@ -1,17 +1,25 @@
 import express from "express";
-import React from 'react';
+import React from "react";
 import { renderToString } from "react-dom/server";
 import App from "./src/index";
 
 const app = express();
 const port = 3000;
 
-app.get("/", (req, res) => {
-  const ReactAppString = renderToString(<App></App>);
+app.get("/", async (req, res) => {
+  const { getInitialData } = App;
+  const data = await getInitialData();
+  const ReactAppString = renderToString(<App {...data}></App>);
+
   const html = `
     <html>
         <head>
             <title>meme posts (SSR)</title>
+            <style>
+            table, th, td {
+                border: 1px solid black;
+              }
+            </style>
         </head>
         <body>
             <div id="root">
