@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "concurrently --kill-others 'yarn build:server' 'yarn build:client' 'nodemon --inspect build/server.js'",
+    "dev": "concurrently \"yarn:build:server\" \"yarn build:client\" \"nodemon --inspect build/server.js\"",
     "build:server": "webpack --config webpack.server.js -w",
     "build:client": "webpack --config webpack.client.js -w"
   },
