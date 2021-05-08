@@ -25,6 +25,7 @@ app.get("/", async (req, res) => {
             <div id="root">
                 ${ReactAppString}
             </div>
+            <script src="client.js"></script>
         </body>
     </html>
     

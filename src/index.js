@@ -35,7 +35,7 @@ const App = ({ redditData }) => {
 App.getInitialData = async () => {
   const redditData = await getMemePosts();
 
-  return { redditData, somethingFromServer: "123" };
+  return { redditData, message: "from getInitialData" };
 };
 
 export default App;
