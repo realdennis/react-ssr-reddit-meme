@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import getMemePosts from "../services/getMemePosts";
+const origin = "https://www.reddit.com";
+
 const App = ({ redditData }) => {
   const [showUpvotes, setShowUpvotes] = useState(false);
   const [data, setData] = useState(redditData);
@@ -43,7 +45,9 @@ const App = ({ redditData }) => {
                   <td>
                     <img src={data.thumbnail}></img>
                   </td>
-                  <td>{data.title}</td>
+                  <td>
+                    <a href={`${origin}${data.permalink}`}>{data.title}</a>
+                  </td>
                   <td>{showUpvotes ? data.ups : "???"}</td>
                 </tr>
               );
